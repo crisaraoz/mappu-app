@@ -4,20 +4,20 @@ import { APIProvider, Map as GoogleMap } from '@vis.gl/react-google-maps';
 
 interface MapProps {
   toggleDashboard: () => void;
+  center?: { lat: number; lng: number };
 }
 
-const Map: React.FC<MapProps> = ({ toggleDashboard }) => {
+const Map: React.FC<MapProps> = ({ toggleDashboard, center }) => {
   return (
     <APIProvider apiKey={process.env.NEXT_PUBLIC_GOOGLE_MAPS_API_KEY as string}>
       <div style={{ position: 'relative', width: '100%', height: '100%' }}>
         <GoogleMap
           style={{ width: '100%', height: '100%' }}
-          defaultCenter={{ lat: -34.397, lng: 150.644 }}
+          center={center}
           defaultZoom={12}
           gestureHandling={'greedy'}
           disableDefaultUI={true}
         />
-        {/* Botón para alternar la visibilidad del Dashboard */}
         <button
           onClick={toggleDashboard}
           style={{
@@ -40,4 +40,4 @@ const Map: React.FC<MapProps> = ({ toggleDashboard }) => {
   );
 };
 
-export default Map;
+export default Map
