@@ -1,0 +1,11 @@
+.dashboard {
+    background-color: var(--header-bg-color);
+    color: var(--header-text-color);
+    padding: 20px;
+    transition: background-color 0.3s ease, color 0.3s ease;
+  }
+
+  .dashboard-container {
+    width: 300px;
+  }
+  
